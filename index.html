@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Phone Number Validator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cash Register App</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Input field for user to enter phone number -->
-  <input type="text" id="user-input" placeholder="Enter phone number">
-
-  <!-- Buttons for checking and clearing input -->
-  <button id="check-btn">Check</button>
-  <button id="clear-btn">Clear</button>
-
-  <!-- Results display area -->
-  <div id="results-div"></div>
-
-  <!-- JavaScript file inclusion -->
+  <div class="container">
+    <h1>Cash Register</h1>
+    <!-- Display the item price -->
+    <div class="item-info">
+      <p>Item Price: <span id="price">$19.50</span></p>
+    </div>
+    <!-- Input for the cash provided -->
+    <div class="input-group">
+      <label for="cash">Enter Cash Provided:</label>
+      <input type="number" id="cash" step="0.01" placeholder="e.g., 20.00" />
+    </div>
+    <!-- Purchase button -->
+    <button id="purchase-btn">Purchase</button>
+    <!-- Output area for the change due and status -->
+    <div class="output">
+      <p id="change-due"></p>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
