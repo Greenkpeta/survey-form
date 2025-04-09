@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Survey Form</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 1) Page title in an h1 element with id="title" -->
+  <h1 id="title">Survey Form</h1>
+
+  <!-- 2) Short explanation in a p element with id="description" -->
+  <p id="description">
+    We appreciate your feedback. Please fill out the survey below!
+  </p>
+
+  <!-- 3) Form element with id="survey-form" -->
+  <form id="survey-form">
+    <!-- 4) Required name input with id="name" and type="text" -->
+    <!-- 10) Corresponding label with id="name-label" -->
+    <label id="name-label" for="name">Name:</label>
+    <input 
+      type="text" 
+      id="name" 
+      name="name" 
+      placeholder="Enter your name" 
+      required
+    >
+
+    <!-- 5) Required email input with id="email" and type="email" -->
+    <!-- 10) Corresponding label with id="email-label" -->
+    <label id="email-label" for="email">Email:</label>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      placeholder="Enter your email" 
+      required
+    >
+
+    <!-- 7) Number input with id="number" -->
+    <!-- 8) Must only accept numbers, HTML5 handles this -->
+    <!-- 9) Has min and max attributes for validation -->
+    <!-- 10) Corresponding label with id="number-label" -->
+    <label id="number-label" for="number">Age (optional):</label>
+    <input 
+      type="number" 
+      id="number" 
+      name="number" 
+      placeholder="Enter your age" 
+      min="10" 
+      max="100"
+    >
+
+    <!-- 12) A select dropdown with id="dropdown" and at least two options -->
+    <label for="dropdown">What is your current role?</label>
+    <select id="dropdown" name="role">
+      <option value="" disabled selected>Select an option</option>
+      <option value="student">Student</option>
+      <option value="full-time-job">Full Time Job</option>
+      <option value="full-time-learner">Full Time Learner</option>
+      <option value="prefer-not-to-say">Prefer not to say</option>
+    </select>
+
+    <!-- 13) A group of at least two radio buttons with the same name attribute -->
+    <p>Would you recommend our platform to a friend?</p>
+    <label>
+      <input type="radio" name="recommend" value="definitely">
+      Definitely
+    </label>
+    <label>
+      <input type="radio" name="recommend" value="maybe">
+      Maybe
+    </label>
+    <label>
+      <input type="radio" name="recommend" value="not-sure">
+      Not sure
+    </label>
+
+    <!-- 14) A series of checkboxes, each with a value attribute -->
+    <p>What would you like to see improved? (Check all that apply)</p>
+    <label>
+      <input type="checkbox" name="improvements" value="front-end">
+      Front-end Projects
+    </label>
+    <label>
+      <input type="checkbox" name="improvements" value="back-end">
+      Back-end Projects
+    </label>
+    <label>
+      <input type="checkbox" name="improvements" value="data-visualization">
+      Data Visualization
+    </label>
+    <label>
+      <input type="checkbox" name="improvements" value="challenges">
+      Coding Challenges
+    </label>
+
+    <!-- 15) A textarea for additional comments -->
+    <label for="comments">Any comments or suggestions?</label>
+    <textarea 
+      id="comments" 
+      name="comments" 
+      placeholder="Enter your comment here..."
+    ></textarea>
+
+    <!-- 16) A button with id="submit" to submit all inputs -->
+    <button id="submit" type="submit">Submit</button>
+  </form>
+</body>
+</html>
