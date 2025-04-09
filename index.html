@@ -2,60 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Landing Page</title>
+  <title>My Portfolio</title>
+  <!-- Link to your external CSS file -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header id="header">
-    <img src="logo.png" alt="Company Logo" id="header-img" />
-    <nav id="nav-bar">
-      <ul>
-        <li><a href="#features" class="nav-link">Features</a></li>
-        <li><a href="#video-section" class="nav-link">Video</a></li>
-        <li><a href="#pricing" class="nav-link">Pricing</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- 1) Navbar with id="navbar" -->
+  <nav id="navbar">
+    <!-- 7) Navbar contains links that navigate to sections of the page -->
+    <ul>
+      <li><a href="#welcome-section">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
 
-  <section id="features">
-    <h2>Our Features</h2>
-    <p>Learn more about what makes our product unique.</p>
+  <!-- 1) Welcome section with id="welcome-section" -->
+  <!-- 2) Has an h1 element containing text -->
+  <section id="welcome-section">
+    <h1>Welcome to My Portfolio</h1>
+    <p>I’m excited to share my work with you!</p>
   </section>
 
-  <section id="video-section">
-    <h2>Product Demo</h2>
-    <!-- Video element with id "video" and a direct src attribute -->
-    <video id="video" width="600" controls src="demo-video.mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
-
-  <section id="pricing">
-    <h2>Pricing Plans</h2>
-    <div class="pricing-table">
-      <div class="plan">
-        <h3>Basic</h3>
-        <p>$9.99/month</p>
-      </div>
-      <div class="plan">
-        <h3>Standard</h3>
-        <p>$19.99/month</p>
-      </div>
-      <div class="plan">
-        <h3>Premium</h3>
-        <p>$29.99/month</p>
-      </div>
+  <!-- 3) Projects section with id="projects" -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    
+    <!-- 4) At least one element with class="project-tile" -->
+    <!-- 5) Contains at least one link to a project -->
+    <div class="project-tile">
+      <a href="https://example.com" target="_blank">Project 1</a>
+    </div>
+    <div class="project-tile">
+      <a href="https://example.com" target="_blank">Project 2</a>
     </div>
   </section>
 
-  <section id="form-section">
-    <h2>Subscribe to Our Newsletter</h2>
-    <form id="form" action="https://www.freecodecamp.com/email-submit">
-      <!-- Email input now includes name="email" -->
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-      <input type="submit" id="submit" value="Subscribe" />
-    </form>
-  </section>
+  <!-- Footer with the profile link -->
+  <!-- 8) A link with id="profile-link" that opens your profile in a new tab -->
+  <footer>
+    <a id="profile-link" href="https://github.com/YourGitHubUsername" target="_blank">
+      My GitHub Profile
+    </a>
+  </footer>
 </body>
 </html>
