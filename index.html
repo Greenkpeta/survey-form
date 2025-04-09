@@ -1,30 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cash Register App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokémon Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #types span {
+      margin: 0 5px;
+      padding: 3px 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Cash Register</h1>
-    <!-- Display the item price -->
-    <div class="item-info">
-      <p>Item Price: <span id="price">$19.50</span></p>
-    </div>
-    <!-- Input for the cash provided -->
-    <div class="input-group">
-      <label for="cash">Enter Cash Provided:</label>
-      <input type="number" id="cash" step="0.01" placeholder="e.g., 20.00" />
-    </div>
-    <!-- Purchase button -->
-    <button id="purchase-btn">Purchase</button>
-    <!-- Output area for the change due and status -->
-    <div class="output">
-      <p id="change-due"></p>
-    </div>
+  <h1>Pokémon Search</h1>
+  <!-- Required input -->
+  <input type="text" id="search-input" required placeholder="Enter Pokémon name or ID">
+  <!-- Search button -->
+  <button id="search-button">Search</button>
+
+  <div id="pokemon-info">
+    <!-- Pokémon name -->
+    <h2 id="pokemon-name"></h2>
+    <!-- Sprite will be inserted dynamically -->
+    <p>ID: <span id="pokemon-id"></span></p>
+    <p>Weight: <span id="weight"></span></p>
+    <p>Height: <span id="height"></span></p>
+    <p>Types: <span id="types"></span></p>
+    <p>HP: <span id="hp"></span></p>
+    <p>Attack: <span id="attack"></span></p>
+    <p>Defense: <span id="defense"></span></p>
+    <p>Special Attack: <span id="special-attack"></span></p>
+    <p>Special Defense: <span id="special-defense"></span></p>
+    <p>Speed: <span id="speed"></span></p>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById("search-button").addEventListener("click", function() {
+      var inputField = document.getElementById("search-input");
+      var query = inputField.value.trim();
+
+      // Clear previous types and remove existing sprite if any.
+      var typesContainer = document.getElementById("types");
+      typesContainer.innerHTML = "";
+      var existingSprite = document.getElementById("sprite");
+      if(existingSprite) {
+        existingSprite.remove();
+      }
+
+      // If input is "Red" (case-insensitive), alert and exit.
+      if(query.toLowerCase() === "red") {
+        alert("Pokémon not found");
+        return;
+      }
+
+      fetch("https://pokeapi.co/api/v2/pokemon/" + query.toLowerCase())
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error("Not found");
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          // Update UI elements with fetched data.
+          document.getElementById("pokemon-name").textContent = data.name.toUpperCase();
+          document.getElementById("pokemon-id").textContent = "#" + data.id;
+          document.getElementById("weight").textContent = data.weight;
+          document.getElementById("height").textContent = data.height;
+          document.getElementById("hp").textContent = data.stats[0].base_stat;
+          document.getElementById("attack").textContent = data.stats[1].base_stat;
+          document.getElementById("defense").textContent = data.stats[2].base_stat;
+          document.getElementById("special-attack").textContent = data.stats[3].base_stat;
+          document.getElementById("special-defense").textContent = data.stats[4].base_stat;
+          document.getElementById("speed").textContent = data.stats[5].base_stat;
+
+          // Create and insert the sprite image.
+          var spriteImg = document.createElement("img");
+          spriteImg.id = "sprite";
+          spriteImg.src = data.sprites.front_default;
+          var nameElement = document.getElementById("pokemon-name");
+          nameElement.parentNode.insertBefore(spriteImg, nameElement.nextSibling);
+
+          // Populate types (clearing previous content).
+          data.types.forEach(function(typeInfo) {
+            var span = document.createElement("span");
+            span.textContent = typeInfo.type.name.toUpperCase();
+            typesContainer.appendChild(span);
+          });
+        })
+        .catch(function(error) {
+          alert("Pokémon not found");
+        });
+    });
+  </script>
 </body>
 </html>
