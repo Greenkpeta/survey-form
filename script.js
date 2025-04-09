@@ -1,52 +1,37 @@
-document.getElementById("convert-btn").addEventListener("click", function() {
-    let numberInput = document.getElementById("number").value;
-    let output = document.getElementById("output");
+// Selecting DOM elements
+const userInput = document.getElementById('user-input');
+const checkBtn = document.getElementById('check-btn');
+const clearBtn = document.getElementById('clear-btn');
+const resultsDiv = document.getElementById('results-div');
 
-    if (numberInput === "") {
-        output.textContent = "Please enter a valid number";
-        return;
-    }
+// Regular expression to validate US phone numbers
+const usPhoneNumberRegex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
 
-    let number = parseInt(numberInput);
+// Function to validate phone number
+function validatePhoneNumber(phoneNumber) {
+  return usPhoneNumberRegex.test(phoneNumber);
+}
 
-    if (number < 1) {
-        output.textContent = "Please enter a number greater than or equal to 1";
-        return;
-    }
+// Event listener for the "Check" button
+checkBtn.addEventListener('click', () => {
+  const inputValue = userInput.value.trim();
 
-    if (number > 3999) {
-        output.textContent = "Please enter a number less than or equal to 3999";
-        return;
-    }
+  // Check if input is empty
+  if (!inputValue) {
+    alert('Please provide a phone number');
+    return;
+  }
 
-    output.textContent = convertToRoman(number);
+  // Validate the phone number
+  if (validatePhoneNumber(inputValue)) {
+    resultsDiv.textContent = `Valid US number: ${inputValue}`;
+  } else {
+    resultsDiv.textContent = `Invalid US number: ${inputValue}`;
+  }
 });
 
-function convertToRoman(num) {
-    const romanNumerals = [
-        { value: 1000, numeral: "M" },
-        { value: 900, numeral: "CM" },
-        { value: 500, numeral: "D" },
-        { value: 400, numeral: "CD" },
-        { value: 100, numeral: "C" },
-        { value: 90, numeral: "XC" },
-        { value: 50, numeral: "L" },
-        { value: 40, numeral: "XL" },
-        { value: 10, numeral: "X" },
-        { value: 9, numeral: "IX" },
-        { value: 5, numeral: "V" },
-        { value: 4, numeral: "IV" },
-        { value: 1, numeral: "I" }
-    ];
-
-    let roman = "";
-
-    for (let i = 0; i < romanNumerals.length; i++) {
-        while (num >= romanNumerals[i].value) {
-            roman += romanNumerals[i].numeral;
-            num -= romanNumerals[i].value;
-        }
-    }
-
-    return roman;
-}
+// Event listener for the "Clear" button
+clearBtn.addEventListener('click', () => {
+  userInput.value = ''; // Clear the input field
+  resultsDiv.textContent = ''; // Clear the results display
+});
