@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tribute Page</title>
-  <!-- Link to your CSS file -->
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Technical Documentation Page</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- 1) main element with id="main" containing all other elements -->
-  <main id="main">
-    <!-- 2) An element with id="title" that describes the subject -->
-    <h1 id="title">Ada Lovelace</h1>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <header>JavaScript Documentation</header>
+    <!-- Navigation links -->
+    <a class="nav-link" href="#Introduction">Introduction</a>
+    <a class="nav-link" href="#Getting_Started">Getting Started</a>
+    <a class="nav-link" href="#Syntax">Syntax</a>
+    <a class="nav-link" href="#Examples">Examples</a>
+    <a class="nav-link" href="#Conclusion">Conclusion</a>
+  </nav>
 
-    <!-- 3) Either a figure or div with id="img-div" -->
-    <figure id="img-div">
-      <!-- 4) Inside #img-div, an img with id="image" -->
-      <img
-        id="image"
-        src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute.jpg"
-        alt="Portrait of Ada Lovelace"
-      />
-      <!-- 5) Inside #img-div, an element with id="img-caption" describing the image -->
-      <figcaption id="img-caption">
-        Often called the “Enchantress of Numbers,” Ada Lovelace is considered the first computer programmer.
-      </figcaption>
-    </figure>
-
-    <!-- 6) An element with id="tribute-info" describing the subject of the tribute -->
-    <section id="tribute-info">
-      <p>
-        Ada Lovelace (1815–1852) was an English mathematician known for her work on Charles Babbage's
-        proposed mechanical general-purpose computer, the Analytical Engine. She was the first to
-        recognize that the machine had applications beyond pure calculation and published the first
-        algorithm intended to be carried out by such a machine.
-      </p>
+  <!-- Main Content -->
+  <main id="main-doc">
+    <!-- Section 1 -->
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Etiam at fermentum nisl. Aenean a varius magna.</p>
+      <p>Here is some code:</p>
+      <code>console.log("Hello World");</code>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
     </section>
 
-    <!-- 7) A link with id="tribute-link", opening in a new tab, to more info about the subject -->
-    <p>
-      <a
-        id="tribute-link"
-        href="https://en.wikipedia.org/wiki/Ada_Lovelace"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn more about Ada Lovelace
-      </a>
-    </p>
+    <!-- Section 2 -->
+    <section class="main-section" id="Getting_Started">
+      <header>Getting Started</header>
+      <p>Quisque sit amet faucibus lectus.</p>
+      <p>Vivamus id ultrices ipsum, et scelerisque dui.</p>
+      <code>let x = 10;</code>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="main-section" id="Syntax">
+      <header>Syntax</header>
+      <p>Proin condimentum urna nec ipsum fringilla, eget facilisis ligula vehicula.</p>
+      <p>Aliquam erat volutpat. Donec in eros at lacus congue lacinia.</p>
+      <code>function greet(name) {
+  return "Hello " + name;
+}</code>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="main-section" id="Examples">
+      <header>Examples</header>
+      <p>Sed auctor consequat luctus. Suspendisse potenti.</p>
+      <p>Here is another code snippet:</p>
+      <code>if (true) {
+  console.log("Condition is true");
+}</code>
+      <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+      </ul>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="main-section" id="Conclusion">
+      <header>Conclusion</header>
+      <p>Donec sit amet massa sed libero luctus tincidunt.</p>
+      <p>Nunc accumsan diam in sapien tristique, id molestie sapien scelerisque.</p>
+      <code>const farewell = "Goodbye!";</code>
+    </section>
   </main>
 </body>
 </html>
